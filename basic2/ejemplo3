@@ -1,4 +1,4 @@
-﻿create table carreras
+create table carreras
 (
 	id bigserial not null,
 	carrera text not null,
@@ -22,7 +22,7 @@ create table docentes
 create table sesiones
 (
 	id bigserial not null,
-	sesión text not null,
+	sesion text not null,
 	PRIMARY KEY(id)
 );
 create table alumnos
@@ -39,8 +39,8 @@ create table alumnos
 	nu_docente bigint,
 	diagnostico text not null,
 	nu_sesion bigint,
-	dirección text,
-	teléfono text,
+	direccion text,
+	telefono text,
 
 	PRIMARY key(id),
 	FOREIGN KEY (nu_carrera) REFERENCES carreras(id),	
