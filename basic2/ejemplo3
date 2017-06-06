@@ -1,0 +1,50 @@
+﻿create table carreras
+(
+	id bigserial not null,
+	carrera text not null,
+	semestre text not null,
+	PRIMARY KEY(id)
+);
+create table grupos
+(
+	id bigserial not null,
+	grupo text not null,
+	PRIMARY KEY(id)
+);
+create table docentes
+(
+	id bigserial not null,
+	nombre text not null,
+	paterno text not null,
+	materno text,
+	PRIMARY KEY(id)
+);
+create table sesiones
+(
+	id bigserial not null,
+	sesión text not null,
+	PRIMARY KEY(id)
+);
+create table alumnos
+(
+	id bigserial not null,
+	nombre text not null,
+	paterno text not null,
+	materno text,
+	edad integer,
+	nu_carrera bigint,
+	nu_grupo bigint,
+	genero text not null,
+	semestre text not null,
+	nu_docente bigint,
+	diagnostico text not null,
+	nu_sesion bigint,
+	dirección text,
+	teléfono text,
+
+	PRIMARY key(id),
+	FOREIGN KEY (nu_carrera) REFERENCES carreras(id),	
+	FOREIGN KEY (nu_grupo) REFERENCES grupos(id),
+	FOREIGN KEY (nu_docente) REFERENCES docentes(id),
+	FOREIGN KEY (nu_sesion) REFERENCES sesiones(id)
+);
